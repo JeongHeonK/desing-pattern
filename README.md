@@ -3,3 +3,4 @@
 ```
 
 - [Singleton](./doc/Singleton.md)
+- [Factory](./doc/Fatory.md)
