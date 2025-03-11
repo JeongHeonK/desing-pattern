@@ -1,7 +1,15 @@
-import Grimpan from "./grimpan.js";
+import IEGrimpan from "./ieGrimpan";
+import ChromeGrimpan from "./chromeGrimpan";
 
-function main(instance: any) {
-  instance.initialize();
+function grimpanFactory(type: "ie" | "chrome") {
+  switch (type) {
+    case "ie":
+      return IEGrimpan.getInstance();
+    case "chrome":
+      return ChromeGrimpan.getInstance();
+    default:
+      throw new Error("일치하는 type이 없습니다.");
+  }
 }
 
-main(Grimpan.getInstance());
+grimpanFactory("ie");
