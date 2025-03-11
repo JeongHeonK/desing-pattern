@@ -1,2 +1,5 @@
-"use strict";
-const str = "bye";
+import Grimpan from "./grimpan.js";
+function main(instance) {
+    instance.initialize();
+}
+main(Grimpan.getInstance());
