@@ -10,3 +10,6 @@
 ### Factory method
 
 - 위의 타입 문제를 보완한 패턴
+- SRP보다는 OCP에 더 치중한 느낌
+- 이 경우 기존 코드 수정보다는 class만 변경해주면 됨.
+- 결합도를 낮추기 위해 아예 class constructor의 인자로 전달받을 수도 있음.
