@@ -1,15 +1,13 @@
-import IEGrimpan from "./ieGrimpan";
-import ChromeGrimpan from "./chromeGrimpan";
+import { ChromeGrimpanFactory } from "./grimpanFactory";
+import { ChromeGrimpanMenu } from "./grimpanMenu";
 
-function grimpanFactory(type: "ie" | "chrome") {
-  switch (type) {
-    case "ie":
-      return IEGrimpan.getInstance();
-    case "chrome":
-      return ChromeGrimpan.getInstance();
-    default:
-      throw new Error("일치하는 type이 없습니다.");
-  }
+function main() {
+  const grimpan = ChromeGrimpanFactory.createGrimpan();
+  const grimpanMenu = ChromeGrimpanFactory.createGrimpanMenu(grimpan);
+  const grimpanHistory = ChromeGrimpanFactory.createGrimpanHistory(grimpan);
+  grimpan.initialize();
+  grimpanMenu.initialize();
+  grimpanHistory.initialize();
 }
 
-grimpanFactory("ie");
+main();
