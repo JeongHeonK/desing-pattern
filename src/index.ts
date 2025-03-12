@@ -1,37 +1,13 @@
-import IEGrimpan from "./ieGrimpan";
-import ChromeGrimpan from "./chromeGrimpan";
-import AbstractGrimpanFactory from "./abstractGrimpanFactory";
-import Grimpan from "./abstractGrimpan";
-
-class ChromeGrimpanFactory extends AbstractGrimpanFactory {
-  static override createGrimpan(): Grimpan {
-    return ChromeGrimpan.getInstance();
-  }
-}
-
-class IEGrimpanFactory extends AbstractGrimpanFactory {
-  static override createGrimpan(): Grimpan {
-    return IEGrimpan.getInstance();
-  }
-}
-
-// function grimpanFactory(type: "ie" | "chrome") {
-//   switch (type) {
-//     case "ie":
-//       return IEGrimpan.getInstance();
-//     case "chrome":
-//       return ChromeGrimpan.getInstance();
-//     default:
-//       throw new Error("일치하는 type이 없습니다.");
-//   }
-// }
-
-// grimpanFactory("ie");
+import { ChromeGrimpanFactory } from "./grimpanFactory";
+import { ChromeGrimpanMenu } from "./grimpanMenu";
 
 function main() {
   const grimpan = ChromeGrimpanFactory.createGrimpan();
+  const grimpanMenu = ChromeGrimpanFactory.createGrimpanMenu(grimpan);
+  const grimpanHistory = ChromeGrimpanFactory.createGrimpanHistory(grimpan);
   grimpan.initialize();
-  grimpan.initializeMenu();
+  grimpanMenu.initialize();
+  grimpanHistory.initialize();
 }
 
 main();
